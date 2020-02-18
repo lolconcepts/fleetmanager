@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle: one
+  technician: one
+  description: MyString
+  parts_subtotal: MyString
+  labor_subtotal: MyString
+  total: MyString
+  vehicle_miles_in: MyString
+  status: one
+  work_start: 2020-02-17 08:59:46
+  work_end: 2020-02-17 08:59:46
+
+two:
+  vehicle: two
+  technician: two
+  description: MyString
+  parts_subtotal: MyString
+  labor_subtotal: MyString
+  total: MyString
+  vehicle_miles_in: MyString
+  status: two
+  work_start: 2020-02-17 08:59:46
+  work_end: 2020-02-17 08:59:46

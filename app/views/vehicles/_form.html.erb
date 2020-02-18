@@ -1,0 +1,162 @@
+<%= form_with(model: vehicle, local: true) do |form| %>
+  <% if vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+      <% vehicle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+   <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group %>
+    <%= form.text_field :group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.text_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trim %>
+    <%= form.text_field :trim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Type" %>
+    <%= form.text_field :vtype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuel_type %>
+    <%= form.text_field :fuel_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :primary_meter_usage_per_day %>
+    <%= form.text_field :primary_meter_usage_per_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_meter_value %>
+    <%= form.text_field :current_meter_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_meter_date %>
+    <%= form.datetime_select :current_meter_date %>
+  </div>
+
+ <div class="field">
+    <%= form.label :total_service_cost %>
+    <%= form.datetime_select :total_service_cost  %>
+  </div>
+
+ <div class="field">
+    <%= form.label :total_fuel_cost %>
+    <%= form.datetime_select :total_fuel_cost  %>
+  </div>
+
+<div class="field">
+    <%= form.label :cost_per_meter%>
+    <%= form.datetime_select :cost_per_meter  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :VIN %>
+    <%= form.text_field :VIN %>
+  </div>
+
+  <div class="field">
+    <%= form.label :license_plate %>
+    <%= form.text_field :license_plate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :registration_state %>
+    <%= form.text_field :registration_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ownership %>
+    <%= form.text_field :ownership %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_costs %>
+    <%= form.text_field :service_costs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuel_costs %>
+    <%= form.text_field :fuel_costs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :other_costs %>
+    <%= form.text_field :other_costs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_meter %>
+    <%= form.text_field :cost_meter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :meter_usage %>
+    <%= form.text_field :meter_usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchase_price %>
+    <%= form.text_field :purchase_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchase_date %>
+    <%= form.datetime_select :purchase_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warranty_expiration %>
+    <%= form.datetime_select :warranty_expiration %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

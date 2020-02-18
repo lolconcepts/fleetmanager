@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Group</th>
+      <th>Year</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Trim</th>
+      <th>Color</th>
+      <th>Type</th>
+      <th>Fuel type</th>
+      <th>Current meter</th>
+      <th>Current meter date</th>
+      <th>Primary Meter Usage Per Day</th>
+      <th>Total Service Cost</th>
+      <th>Total Fuel Cost</th>
+      <th>Cost Per Meter</th>
+      <th>Status</th>
+      <th>Vin</th>
+      <th>License plate</th>
+      <th>Registration state</th>
+      <th>Ownership</th>
+      <th>Service costs</th>
+      <th>Fuel costs</th>
+      <th>Other costs</th>
+      <th>Cost meter</th>
+      <th>Meter usage</th>
+      <th>Purchase price</th>
+      <th>Purchase date</th>
+      <th>Warranty expiration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= vehicle.number %></td>
+        <td><%= vehicle.name %></td>
+        <td><%= vehicle.group %></td>
+        <td><%= vehicle.year %></td>
+        <td><%= vehicle.make %></td>
+        <td><%= vehicle.model %></td>
+        <td><%= vehicle.trim %></td>
+        <td><%= vehicle.color %></td>
+        <td><%= vehicle.vtype %></td>
+        <td><%= vehicle.fuel_type %></td>
+        <td><%= vehicle.current_meter_value %></td>
+        <td><%= vehicle.current_meter_date %></td>
+        <td><%= vehicle.primary_meter_usage_per_day %></td>
+        <td><%= vehicle.total_service_cost %></td>
+        <td><%= vehicle.total_fuel_cost %></td>
+        <td><%= vehicle.cost_per_meter %></td>
+        <td><%= vehicle.status %></td>
+        <td><%= vehicle.VIN %></td>
+        <td><%= vehicle.license_plate %></td>
+        <td><%= vehicle.registration_state %></td>
+        <td><%= vehicle.ownership %></td>
+        <td><%= vehicle.service_costs %></td>
+        <td><%= vehicle.fuel_costs %></td>
+        <td><%= vehicle.other_costs %></td>
+        <td><%= vehicle.cost_meter %></td>
+        <td><%= vehicle.meter_usage %></td>
+        <td><%= vehicle.purchase_price %></td>
+        <td><%= vehicle.purchase_date %></td>
+        <td><%= vehicle.warranty_expiration %></td>
+        <td><%= link_to 'Show', vehicle %></td>
+        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
+        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div>
+<h4 class="h4">Import Existing Vehicle Data</h4>
+<%= form_tag import_vehicles_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import From CSV" %>
+<% end %>
+</div>
+<%= link_to 'New Vehicle', new_vehicle_path %>

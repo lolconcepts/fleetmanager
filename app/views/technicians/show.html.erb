@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag(@technician.avatar_url) if @technician.avatar? %>
+<p>
+  <strong>First Name</strong>
+  <%= @technician.fname %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @technician.lname %>
+</p>
+
+
+<p>
+  <strong>Active:</strong>
+  <%= @technician.active %>
+</p>
+
+<%= link_to 'Edit', edit_technician_path(@technician) %> |
+<%= link_to 'Back', technicians_path %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Workorders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle</th>
+      <th>Technician</th>
+      <th>Description</th>
+      <th>Parts subtotal</th>
+      <th>Labor subtotal</th>
+      <th>Total</th>
+      <th>Vehicle miles in</th>
+      <th>Status</th>
+      <th>Work start</th>
+      <th>Work end</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workorders.each do |workorder| %>
+      <tr>
+        <td><%= workorder.vehicle.name %></td>
+        <td><%= workorder.technician.fullname %></td>
+        <td><%= workorder.description %></td>
+        <td><%= workorder.parts_subtotal %></td>
+        <td><%= workorder.labor_subtotal %></td>
+        <td><%= workorder.total %></td>
+        <td><%= workorder.vehicle_miles_in %></td>
+        <td><%= workorder.status.description %></td>
+        <td><%= workorder.work_start %></td>
+        <td><%= workorder.work_end %></td>
+        <td><%= link_to 'Show', workorder %></td>
+        <td><%= link_to 'Edit', edit_workorder_path(workorder) %></td>
+        <td><%= link_to 'Destroy', workorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Workorder', new_workorder_path %>

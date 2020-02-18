@@ -1,0 +1,47 @@
+<%= form_with(model: workorder, local: true) do |form| %>
+  <% if workorder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(workorder.errors.count, "error") %> prohibited this workorder from being saved:</h2>
+
+      <ul>
+      <% workorder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="field">
+    <%= form.label "Vehicle" %><br />
+    <%= form.collection_select :vehicle_id, Vehicle.all, :id, :name %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Technician" %><br />
+    <%= form.collection_select :technician_id, Technician.all, :id, :fullname %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :vehicle_miles_in %>
+    <%= form.text_field :vehicle_miles_in %>
+  </div>
+
+
+   <div class="field">
+    <%= form.label "Status" %><br />
+    <%= form.collection_select :status_id, Status.all, :id, :description %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

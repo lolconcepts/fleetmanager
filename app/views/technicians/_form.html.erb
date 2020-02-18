@@ -1,0 +1,68 @@
+<%= form_with(model: technician, local: true) do |form| %>
+  <% if technician.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(technician.errors.count, "error") %> prohibited this technician from being saved:</h2>
+
+      <ul>
+      <% technician.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "First Name" %>
+    <%= form.text_field :fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Last Name" %>
+    <%= form.text_field :lname %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Group" %>
+    <%= form.text_field :group %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Start Date" %>
+    <%= form.date_field :start_date %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Leave Date" %>
+    <%= form.date_field :leave_date %>
+  </div>
+
+   <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Vehicle Operator" %>
+    <%= form.check_box :vehicle_operator %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Hourly Rate In Cents" %>
+    <%= form.text_field :hourly_labor_rate_cents %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @workorder.vehicle %>
+</p>
+
+<p>
+  <strong>Technician:</strong>
+  <%= @workorder.technician %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workorder.description %>
+</p>
+
+<p>
+  <strong>Parts subtotal:</strong>
+  <%= @workorder.parts_subtotal %>
+</p>
+
+<p>
+  <strong>Labor subtotal:</strong>
+  <%= @workorder.labor_subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @workorder.total %>
+</p>
+
+<p>
+  <strong>Vehicle miles in:</strong>
+  <%= @workorder.vehicle_miles_in %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @workorder.status %>
+</p>
+
+<p>
+  <strong>Work start:</strong>
+  <%= @workorder.work_start %>
+</p>
+
+<p>
+  <strong>Work end:</strong>
+  <%= @workorder.work_end %>
+</p>
+
+<%= link_to 'Edit', edit_workorder_path(@workorder) %> |
+<%= link_to 'Back', workorders_path %>

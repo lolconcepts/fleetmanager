@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  group: MyString
+  year: MyString
+  make: MyString
+  model: MyString
+  trim: MyString
+  color: MyString
+  type: 
+  fuel_type: MyString
+  current_meter: MyString
+  current_meter_date: 2020-02-17 08:21:27
+  status: MyString
+  VIN: MyString
+  license_plate: MyString
+  registration_state: MyString
+  ownership: MyString
+  service_costs: MyString
+  fuel_costs: MyString
+  other_costs: MyString
+  cost_meter: MyString
+  meter_usage: MyString
+  purchase_price: MyString
+  purchase_date: 2020-02-17 08:21:27
+  warranty_expiration: 2020-02-17 08:21:27
+
+two:
+  number: MyString
+  group: MyString
+  year: MyString
+  make: MyString
+  model: MyString
+  trim: MyString
+  color: MyString
+  type: 
+  fuel_type: MyString
+  current_meter: MyString
+  current_meter_date: 2020-02-17 08:21:27
+  status: MyString
+  VIN: MyString
+  license_plate: MyString
+  registration_state: MyString
+  ownership: MyString
+  service_costs: MyString
+  fuel_costs: MyString
+  other_costs: MyString
+  cost_meter: MyString
+  meter_usage: MyString
+  purchase_price: MyString
+  purchase_date: 2020-02-17 08:21:27
+  warranty_expiration: 2020-02-17 08:21:27
