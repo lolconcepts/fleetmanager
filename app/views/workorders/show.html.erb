@@ -2,12 +2,12 @@
 
 <p>
   <strong>Vehicle:</strong>
-  <%= @workorder.vehicle %>
+  <%= @workorder.vehicle.number %>
 </p>
 
 <p>
   <strong>Technician:</strong>
-  <%= @workorder.technician %>
+  <%= @workorder.technician.fullname %>
 </p>
 
 <p>
@@ -17,17 +17,17 @@
 
 <p>
   <strong>Parts subtotal:</strong>
-  <%= @workorder.parts_subtotal %>
+  <%= @parts_total %>
 </p>
 
 <p>
   <strong>Labor subtotal:</strong>
-  <%= @workorder.labor_subtotal %>
+  <%= @labor_total %>
 </p>
 
 <p>
   <strong>Total:</strong>
-  <%= @workorder.total %>
+  <%= @total %>
 </p>
 
 <p>
@@ -37,18 +37,35 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @workorder.status %>
+  <%= @workorder.status.description %>
 </p>
 
 <p>
   <strong>Work start:</strong>
-  <%= @workorder.work_start %>
+  <%= @workorder.work_start.strftime("%m/%d/%Y - %I:%M%p") %>
 </p>
 
 <p>
   <strong>Work end:</strong>
-  <%= @workorder.work_end %>
+  <% if @workorder.work_end != nil %>
+    <%= @workorder.work_end.strftime("%m/%d/%Y - %I:%M%p") %>
+  <% else %>
+    Not Set
+  <% end %>
 </p>
+
+<div>
+  <% if @workorder.line_items %>
+    <ul>
+    <% @workorder.line_items.each do |item| %>
+      <li><%= item.quantity %> x <%= item.part.description %> - <%= (item.part.cost.to_f * item.quantity.to_i).round(2) %></li>
+    <% end %>
+    </ul>
+  <% else %>
+  <% end %>
+</div>
+
+<%= link_to "Add Line Item", new_line_item_path(workorder_id: @workorder.id) %>
 
 <%= link_to 'Edit', edit_workorder_path(@workorder) %> |
 <%= link_to 'Back', workorders_path %>

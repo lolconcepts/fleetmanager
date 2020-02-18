@@ -52,7 +52,9 @@
 
 <p>
   <strong>Current meter date:</strong>
-  <%= @vehicle.current_meter_date %>
+  <% if @vehicle.current_meter_date %>
+  <%= @vehicle.current_meter_date.strftime("%m/%d/%Y") %>
+  <% end %>
 </p>
 
 <p>
@@ -112,12 +114,16 @@
 
 <p>
   <strong>Purchase date:</strong>
-  <%= @vehicle.purchase_date %>
+  <% if @vehicle.purchase_date %>
+  <%= @vehicle.purchase_date.strftime("%m/%d/%Y") %>
+  <% end %>
 </p>
 
 <p>
   <strong>Warranty expiration:</strong>
-  <%= @vehicle.warranty_expiration %>
+  <% if @vehicle.warranty_expiration %>
+    <%= @vehicle.warranty_expiration.strftime("%m/%d/%Y") %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_163628) do
+ActiveRecord::Schema.define(version: 2020_02_18_172248) do
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "workorder_id"
+    t.integer "part_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_line_items_on_part_id"
+    t.index ["workorder_id"], name: "index_line_items_on_workorder_id"
+  end
 
   create_table "parts", force: :cascade do |t|
     t.string "sku"
@@ -19,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_163628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "vendor_id"
+    t.string "cost", default: "0"
     t.index ["vendor_id"], name: "index_parts_on_vendor_id"
   end
 

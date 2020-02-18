@@ -10,6 +10,15 @@ class WorkordersController < ApplicationController
   # GET /workorders/1
   # GET /workorders/1.json
   def show
+    @wo = Workorder.find(params[:id])
+    @parts_total = 0.00
+    @labor_total = 0.00
+    if @wo.line_items
+      @wo.line_items.each do |item|
+        @parts_total += (item.part.cost.to_f * item.quantity).round(2)
+      end
+    end
+    @total = (@parts_total + @labor_total).round(2)
   end
 
   # GET /workorders/new

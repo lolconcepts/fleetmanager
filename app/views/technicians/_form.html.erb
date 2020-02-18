@@ -52,6 +52,7 @@
   </div>
 
   <div class="field">
+    <%= image_tag(@technician.avatar_url, size: "150x150") if @technician.avatar? %>
     <%= form.label :avatar %>
     <%= form.file_field :avatar %>
   </div>

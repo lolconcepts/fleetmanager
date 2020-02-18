@@ -1,17 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag(@technician.avatar_url) if @technician.avatar? %>
+<%= image_tag(@technician.avatar_url, size: "150x150") if @technician.avatar? %>
 <p>
-  <strong>First Name</strong>
-  <%= @technician.fname %>
+  <strong>Name</strong>
+  <%= @technician.fullname %>
 </p>
 
 <p>
-  <strong>Last Name:</strong>
-  <%= @technician.lname %>
+  <strong>Email:</strong>
+  <%= @technician.email %>
 </p>
 
+<p>
+  <strong>Group:</strong>
+  <%= @technician.group %>
+</p>
 
+<p>
+  <strong>Hourly Rate:</strong>
+  <%= @technician.hourly_labor_rate_cents %>
+</p>
 <p>
   <strong>Active:</strong>
   <%= @technician.active %>

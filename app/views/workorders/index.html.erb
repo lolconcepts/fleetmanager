@@ -8,8 +8,6 @@
       <th>Vehicle</th>
       <th>Technician</th>
       <th>Description</th>
-      <th>Parts subtotal</th>
-      <th>Labor subtotal</th>
       <th>Total</th>
       <th>Vehicle miles in</th>
       <th>Status</th>
@@ -25,13 +23,19 @@
         <td><%= workorder.vehicle.name %></td>
         <td><%= workorder.technician.fullname %></td>
         <td><%= workorder.description %></td>
-        <td><%= workorder.parts_subtotal %></td>
-        <td><%= workorder.labor_subtotal %></td>
         <td><%= workorder.total %></td>
         <td><%= workorder.vehicle_miles_in %></td>
         <td><%= workorder.status.description %></td>
-        <td><%= workorder.work_start %></td>
-        <td><%= workorder.work_end %></td>
+        <% if workorder.work_start %>
+          <td><%= workorder.work_start.strftime("%m/%d/%Y - %I:%M%p") %></td>
+        <% else %>
+          <td>Not Started</td>
+        <% end %>
+        <% if workorder.work_end %>
+          <td><%= workorder.work_end.strftime("%m/%d/%Y - %I:%M%p") %></td>
+        <% else %>
+          <td>Not Complete</td>
+        <% end %>
         <td><%= link_to 'Show', workorder %></td>
         <td><%= link_to 'Edit', edit_workorder_path(workorder) %></td>
         <td><%= link_to 'Destroy', workorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
