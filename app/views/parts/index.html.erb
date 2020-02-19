@@ -29,5 +29,12 @@
 </table>
 
 <br>
+<div>
+<h4 class="h4">Import Existing Part Data</h4>
+<%= form_tag import_parts_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import From CSV" %>
+<% end %>
+</div>
 
 <%= link_to 'New Part', new_part_path %>
