@@ -10,7 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_002833) do
+ActiveRecord::Schema.define(version: 2020_03_04_162701) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "telephone"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dvirs", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "vehicle_id"
+    t.integer "odometer"
+    t.integer "end_mileage"
+    t.integer "start_mileage"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "condition_id"
+    t.index ["company_id"], name: "index_dvirs_on_company_id"
+    t.index ["condition_id"], name: "index_dvirs_on_condition_id"
+    t.index ["vehicle_id"], name: "index_dvirs_on_vehicle_id"
+  end
+
+  create_table "inspection_types", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inspections", force: :cascade do |t|
+    t.string "description"
+    t.text "instructions"
+    t.integer "inspection_type_id"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inspection_type_id"], name: "index_inspections_on_inspection_type_id"
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.integer "vehicle_id"
+    t.integer "inspection_id"
+    t.string "evidence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inspection_id"], name: "index_issues_on_inspection_id"
+    t.index ["vehicle_id"], name: "index_issues_on_vehicle_id"
+  end
 
   create_table "line_items", force: :cascade do |t|
     t.integer "workorder_id"

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @dvir.company %>
+</p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @dvir.vehicle %>
+</p>
+
+<p>
+  <strong>Odometer:</strong>
+  <%= @dvir.odometer %>
+</p>
+
+<p>
+  <strong>End mileage:</strong>
+  <%= @dvir.end_mileage %>
+</p>
+
+<p>
+  <strong>Start mileage:</strong>
+  <%= @dvir.start_mileage %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @dvir.location %>
+</p>
+
+<%= link_to 'Edit', edit_dvir_path(@dvir) %> |
+<%= link_to 'Back', dvirs_path %>

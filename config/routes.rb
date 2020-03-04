@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :issues
+  resources :conditions
+  resources :dvirs
+  resources :companies
+  resources :inspections
+  resources :inspection_types
   get 'dashboard/index'
   resources :line_items
   resources :workorders

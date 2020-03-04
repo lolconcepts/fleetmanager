@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle: one
+  inspection: 
+  evidence: MyString
+
+two:
+  vehicle: two
+  inspection: 
+  evidence: MyString

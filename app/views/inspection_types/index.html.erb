@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inspection Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inspection_types.each do |inspection_type| %>
+      <tr>
+        <td><%= inspection_type.description %></td>
+        <td><%= link_to 'Show', inspection_type %></td>
+        <td><%= link_to 'Edit', edit_inspection_type_path(inspection_type) %></td>
+        <td><%= link_to 'Destroy', inspection_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inspection Type', new_inspection_type_path %>
