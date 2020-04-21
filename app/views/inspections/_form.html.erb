@@ -21,12 +21,9 @@
     <%= form.collection_select :inspection_type_id, InspectionType.all, :id, :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
+ 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

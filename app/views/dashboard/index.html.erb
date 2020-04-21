@@ -1,11 +1,12 @@
-<h1>Dashboard</h1>
+<div class="container">
+	<row class = "text-center justify-content-sm-center">
+		<h1>Metro West</h1>
+		<h4>Regional Transit Authority</h4>
+		<h3>Vehicle Inspection</h3>
+	</row>
+	<row class="d-flex justify-content-center">
+		<%= link_to 'New Workorder',new_workorder_path, class: "btn btn-primary mx-auto" %> 
+	</row>
+</div><!-- End of container -->
 
-<p><%= link_to 'Work Orders', workorders_path %></p>
-<p><%= link_to 'Technicians', technicians_path %></p>
-<p><%= link_to 'Parts', parts_path %></p>
-<p><%= link_to 'Vehicles', vehicles_path %></p>
-<p><%= link_to 'Vendors', vendors_path %></p>
-<p><%= link_to 'Statuses', statuses_path %></p>
-<p><%= link_to 'Inspection Types', inspection_types_path %></p>
-<p><%= link_to 'Inspections', inspections_path %></p>
-<p><%= link_to 'Company Info', companies_path %></p>
+

@@ -1,5 +1,7 @@
 {
   "name": "dfc_workorder",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "tailwindcss": "^1.2.0"
+  }
 }
