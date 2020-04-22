@@ -1,3 +1,7 @@
+<!-- QR CODE FOR VEHICLE ID AND START PAGE -->
+<!-- DRIVER ID and START -->
+<!-- Last Inspection Date and Result -->
+
 <div class="container">
 	<div class="h1 text-center">BUS #99</div>
 	<div class="h2 text-center">DVIR</div>
@@ -6,8 +10,9 @@
   <div class="card-body">
     <h5 class="card-title">CHECK FOR LEAKS</h5>
     <p class="card-text">Inspect under the vehicle for fluid leaks.</p>
-    <a href="#" class="btn btn-success">CHECK OK</a>
+    <%= link_to 'CHECK OK', next_wizard_path , class: "btn btn-success" %>
     <a href="#" class="btn btn-danger">ISSUE</a>
+    <a href="#" class="btn btn-warning">N/A</a>
   </div>
 </div>
 </div>
