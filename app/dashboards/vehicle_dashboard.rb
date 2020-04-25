@@ -49,10 +49,11 @@ class VehicleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  id
   number
-  group
+  license_plate
   year
+  make
+  model
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -144,7 +145,7 @@ class VehicleDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how vehicles are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(vehicle)
-  #   "Vehicle ##{vehicle.id}"
-  # end
+  def display_resource(vehicle)
+     vehicle.number
+  end
 end

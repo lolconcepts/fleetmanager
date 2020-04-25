@@ -2,6 +2,7 @@
   "name": "dfc_workorder",
   "private": true,
   "dependencies": {
+    "signature_pad": "^3.0.0-beta.3",
     "tailwindcss": "^1.2.0"
   }
 }

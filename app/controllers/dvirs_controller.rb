@@ -71,6 +71,6 @@ class DvirsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dvir_params
-      params.require(:dvir).permit(:company_id, :vehicle_id, :odometer, :end_mileage, :start_mileage, :location)
+      params.require(:dvir).permit(:company_id, :vehicle_id, :odometer, :end_mileage, :start_mileage, :location, images: [])
     end
 end

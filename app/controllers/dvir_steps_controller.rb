@@ -4,5 +4,10 @@ class DvirStepsController < ApplicationController
 
 	def show
 		render_wizard
+
+	case step
+  		when :signature
+  			@eDVIR = Dvir.new
+  		end
 	end
 end
