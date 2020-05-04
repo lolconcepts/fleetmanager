@@ -1,13 +1,29 @@
-<div class="container">
-	<div class="h1 text-center">BUS #99</div>
-	<div class="h2 text-center">DVIR</div>
-<div class="card" style="width: 18rem;">
-	<%= image_tag 'bus.jpg', class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title">CHECK BRAKES</h5>
-    <p class="card-text">Check vehicle brakes for stopping ability.</p>
-    <%= link_to 'CHECK OK', next_wizard_path , class: "btn btn-success" %>
-    <a href="#" class="btn btn-danger">ISSUE</a>
-  </div>
-</div>
-</div>
+<div class="p-4 bg-gray-300 h-100">
+  <div class="text-center text-xs text-red-400">
+  Report ID: <%= session[:report] %>
+  Driver ID: <%= @report.driver %>
+  Vehicle ID: <%= @report.vehicle %>
+</div><!-- DEBUG -->
+<!-- HEADER -->
+<h2 class="text-xs text-center">METROWEST REGIONAL TRANSPORTATION BUS <%=@report.vehicle %></h2>
+<h3 class="text-lg text-center">Electronic Vehicle Inspection Report</h3>
+<!-- END HEADER -->
+  <div class="bg-white border rounded-lg shadow overflow-hidden">
+    <%= image_tag 'bus.jpg' %>
+    <div class="p-6">
+      <h1 class="font-semibold text-xl uppercase text-center">CHECK BRAKES</h1>
+      <p class="text-center">Check vehicle brakes for stopping ability.</p>
+      <div class="mt-4">
+        <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
+          <div>Issue: <%=f.check_box :brakes %></div>
+          <div id="capture" class="hidden">
+            <%= f.label :images %>
+            <%= f.file_field :images %>
+          </div>
+          <div><%=f.submit 'Next', :class => 'p-4 rounded bg-green-500 text-white' %>
+          <%= link_to 'N/A', next_wizard_path, :class => 'p-6 rounded bg-orange-500 text-white' %></div>
+        <% end %>
+      </div><!-- FORM END -->
+    </div><!-- END of INNER CARD -->
+  </div><!-- END OF CARD -->
+</div><!-- END OF BODY -->

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver: MyString
+  vehicle: MyString
+  odometer: MyString
+  signature: MyString
+  notes: MyString
+  satisfactory: false
+
+two:
+  driver: MyString
+  vehicle: MyString
+  odometer: MyString
+  signature: MyString
+  notes: MyString
+  satisfactory: false

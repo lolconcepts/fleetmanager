@@ -19,7 +19,7 @@ gem 'carrierwave', '~> 2.0'
 gem "administrate"
 gem 'wicked'
 gem 'signature-pad-rails'
-
+gem 'webpacker'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

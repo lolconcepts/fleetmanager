@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   namespace :admin do
       resources :companies
       resources :conditions

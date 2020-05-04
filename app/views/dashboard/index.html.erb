@@ -5,17 +5,16 @@
 		<h3>Vehicle Inspection</h3>
 	</row>
 	<row class="d-flex justify-content-center">
-		<%= form_for(@edvir, url: wizard_path, method: :put) do |f| %>
-  			<%=  f.text_field :driver_number  %>
- 			<%= hidden_field_tag 'vehicle', @vehicle %>
-  			<%= f.submit "Start eDVIR" %>
-		<% end %>
+		
 	</row>
 </div><!-- End of container -->
-<div class="container">
+<div class="object-center">
 <% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{dvir_steps_url(:vid => 1)}" %>
 	<% @alternate_text = "Bus DVIR" %>
 	<div id="QR" class="border"><%= raw(@url) %> title=<%= @alternate_text %> /></img>
+	</div>
+<div class="mx-auto">
+		<%=link_to 'Test Scan',new_report_path(:vid => 137), class: "p-4 text-white bg-green-500 rounded mx-auto" %> 
 </div>
 
 

@@ -1,21 +1,10 @@
-<h1>New Driver Vehicle Inspection Report</h1>
 
-<%= render 'form', dvir: @dvir %>
-<table class="table">
-<thead>
-	<tr>
-		<td>Status</td>
-		<td>Category</td>
-		<td>Check</td>
-	</tr>
-</thead>
-<% @inspections.each do |i| %>
-	<tr>
-		<td class="text-success">OK</td>
-		<td><%= i.inspection_type.description %></td>
-		<td><%= i.description %></td>
-	</tr>
+<div class="container mx-auto bg-gray-500 border-2 h-50 p-8 rounded-lg shadow">
+<%= form_for(@dvir) do |f| %>
+<%= f.label :driver %>
+<%= f.text_field :driver %>
+<%= f.hidden_field :company_id, value: @company.id %>
+<%= f.hidden_field :vehicle_id, value: @vehicle.id %>
+<%= f.submit 'Next Step' %>
 <% end %>
-</table>
-
-<%= link_to 'Back', dvirs_path %>
+</div>

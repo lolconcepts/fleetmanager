@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_151811) do
+ActiveRecord::Schema.define(version: 2020_05_04_185410) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,47 @@ ActiveRecord::Schema.define(version: 2020_04_22_151811) do
     t.datetime "updated_at", null: false
     t.integer "condition_id"
     t.string "signature"
+    t.boolean "leaks", default: false
+    t.boolean "wires", default: false
+    t.boolean "belts", default: false
+    t.boolean "oil", default: false
+    t.boolean "coolant", default: false
+    t.boolean "battery", default: false
+    t.boolean "transmission", default: false
+    t.boolean "noise", default: false
+    t.boolean "guages", default: false
+    t.boolean "switches", default: false
+    t.boolean "horn", default: false
+    t.boolean "defrosters", default: false
+    t.boolean "wipers", default: false
+    t.boolean "stop_arm", default: false
+    t.boolean "mirrors", default: false
+    t.boolean "brakes", default: false
+    t.boolean "service_door", default: false
+    t.boolean "emergency_equipment", default: false
+    t.boolean "first_aid", default: false
+    t.boolean "stairs", default: false
+    t.boolean "interior", default: false
+    t.boolean "floor", default: false
+    t.boolean "emergency_door", default: false
+    t.boolean "lights", default: false
+    t.boolean "front_right_wheel", default: false
+    t.boolean "windshield", default: false
+    t.boolean "front_left_tire", default: false
+    t.boolean "exhaust", default: false
+    t.boolean "left_side", default: false
+    t.boolean "left_rear_tire", default: false
+    t.boolean "rear", default: false
+    t.boolean "tail_pipe", default: false
+    t.boolean "right_rear_tire", default: false
+    t.boolean "right_side", default: false
+    t.boolean "drivers_seat", default: false
+    t.boolean "directionals", default: false
+    t.boolean "clutch", default: false
+    t.boolean "steering", default: false
+    t.boolean "wheelchair_lift", default: false
+    t.boolean "condition", default: false
+    t.integer "driver"
     t.index ["company_id"], name: "index_dvirs_on_company_id"
     t.index ["condition_id"], name: "index_dvirs_on_condition_id"
     t.index ["vehicle_id"], name: "index_dvirs_on_vehicle_id"
@@ -115,6 +156,59 @@ ActiveRecord::Schema.define(version: 2020_04_22_151811) do
     t.string "part_manufacturer_name"
     t.string "manufacturer_part_number"
     t.index ["vendor_id"], name: "index_parts_on_vendor_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "driver"
+    t.string "vehicle"
+    t.string "odometer"
+    t.string "signature"
+    t.string "notes"
+    t.boolean "satisfactory", default: false
+    t.boolean "boolean", default: false
+    t.boolean "leaks", default: false
+    t.boolean "wires", default: false
+    t.boolean "belts", default: false
+    t.boolean "oil", default: false
+    t.boolean "coolant", default: false
+    t.boolean "battery", default: false
+    t.boolean "transmission", default: false
+    t.boolean "noise", default: false
+    t.boolean "guages", default: false
+    t.boolean "switches", default: false
+    t.boolean "horn", default: false
+    t.boolean "defrosters", default: false
+    t.boolean "wipers", default: false
+    t.boolean "stop_arm", default: false
+    t.boolean "mirrors", default: false
+    t.boolean "brakes", default: false
+    t.boolean "service_door", default: false
+    t.boolean "emergency_equipment", default: false
+    t.boolean "first_aid", default: false
+    t.boolean "stairs", default: false
+    t.boolean "interior", default: false
+    t.boolean "floor", default: false
+    t.boolean "emergency_door", default: false
+    t.boolean "lights", default: false
+    t.boolean "front_right_wheel", default: false
+    t.boolean "windshield", default: false
+    t.boolean "front_left_tire", default: false
+    t.boolean "exhaust", default: false
+    t.boolean "left_side", default: false
+    t.boolean "left_rear_tire", default: false
+    t.boolean "rear", default: false
+    t.boolean "tail_pipe", default: false
+    t.boolean "right_rear_tire", default: false
+    t.boolean "right_side", default: false
+    t.boolean "drivers_seat", default: false
+    t.boolean "directionals", default: false
+    t.boolean "parking_brake", default: false
+    t.boolean "clutch", default: false
+    t.boolean "steering", default: false
+    t.boolean "wheelchair_lift", default: false
+    t.boolean "condition", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "statuses", force: :cascade do |t|

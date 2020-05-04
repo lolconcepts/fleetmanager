@@ -15,8 +15,9 @@ class DvirsController < ApplicationController
   # GET /dvirs/new
   def new
     @dvir = Dvir.new
-    @dvir.location = Company.first.address
-    @inspections = Inspection.all
+    @vehicle = Vehicle.where(:number => params[:vid])[0] || Vehicle.first
+    @company = Company.first
+    
   end
 
   # GET /dvirs/1/edit
@@ -27,15 +28,12 @@ class DvirsController < ApplicationController
   # POST /dvirs.json
   def create
     @dvir = Dvir.new(dvir_params)
-
-    respond_to do |format|
-      if @dvir.save
-        format.html { redirect_to @dvir, notice: 'Dvir was successfully created.' }
-        format.json { render :show, status: :created, location: @dvir }
+    
+    if @dvir.save
+       redirect_to dvir_steps_path
+       session[:dvir] = @dvir.id
       else
-        format.html { render :new }
-        format.json { render json: @dvir.errors, status: :unprocessable_entity }
-      end
+      render :new
     end
   end
 
@@ -71,6 +69,6 @@ class DvirsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dvir_params
-      params.require(:dvir).permit(:company_id, :vehicle_id, :odometer, :end_mileage, :start_mileage, :location, images: [])
+      params.require(:dvir).permit(:company_id, :vehicle_id, :odometer, :end_mileage, :start_mileage, :location,:driver, images: [])
     end
 end
