@@ -38,17 +38,100 @@
           Number of Issues Identified
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
-          <%= @report.images.count %>
+          <%= @report.num_issues('num') %>
         </dd>
       </div>
       <div class="sm:col-span-2">
         <dt class="text-sm leading-5 font-medium text-gray-500">
-          Identified Issues
+          Vehicle Checks
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <ul>
-            <li>Oil Change</li>
-            <li>Driver's Seat Ripped</li>
+            <li>Driver's Seat:<%=!@report.drivers_seat ? 'Ok':'Issue' %>
+            </li>
+            <li>Leaks:<%=!@report.leaks ? 'Ok':'Issue' %>
+            </li>
+            <li>Wires:<%=!@report.wires ? 'Ok':'Issue' %>
+            </li>
+            <li>Belts:<%=!@report.belts ? 'Ok':'Issue' %>
+            </li>
+            <li>Oil:<%=!@report.oil ? 'Ok':'Issue' %>
+            </li>
+             <li>Coolant:<%=!@report.coolant ? 'Ok':'Issue' %>
+            </li>
+
+            <li>Battery:<%=!@report.battery ? 'Ok':'Issue' %>
+            </li>
+            <li>Transmission:<%=!@report.transmission ? 'Ok':'Issue' %>
+            </li>
+            <li>Noise:<%=!@report.noise ? 'Ok':'Issue' %>
+            </li>
+            <li>Guages:<%=!@report.guages ? 'Ok':'Issue' %>
+            </li>
+            <li>Switches:<%=!@report.switches ? 'Ok':'Issue' %>
+            </li>
+            <li>Horn:<%=!@report.horn ? 'Ok':'Issue' %>
+            </li>
+            <li>Defrosters:<%=!@report.defrosters ? 'Ok':'Issue' %>
+            </li>
+            <li>Wipers:<%=!@report.wipers ? 'Ok':'Issue' %>
+            </li>
+            <li>Stop Arm:<%=!@report.stop_arm ? 'Ok':'Issue' %>
+            </li>
+            <li>Mirrors:<%=!@report.mirrors ? 'Ok':'Issue' %>
+            </li>
+            <li>Brakes:<%=!@report.brakes ? 'Ok':'Issue' %>
+            </li>
+            <li>Service Door:<%=!@report.service_door ? 'Ok':'Issue' %>
+            </li>
+            <li>Emergency Equipment:<%=!@report.emergency_equipment ? 'Ok':'Issue' %>
+            </li>
+            <li>First Aid:<%=!@report.first_aid ? 'Ok':'Issue' %>
+            </li>
+            <li>Stairs:<%=!@report.stairs ? 'Ok':'Issue' %>
+            </li>
+            <li>Interior:<%=!@report.interior ? 'Ok':'Issue' %>
+            </li>
+            <li>Floor:<%=!@report.floor ? 'Ok':'Issue' %>
+            </li>
+            <li>Emergency Door:<%=!@report.emergency_door ? 'Ok':'Issue' %>
+            </li>
+            <li>Lights:<%=!@report.lights ? 'Ok':'Issue' %>
+            </li>
+            <li>Front Right Wheel:<%=!@report.front_right_wheel ? 'Ok':'Issue' %>
+            </li>
+            <li>Windshield:<%=!@report.windshield ? 'Ok':'Issue' %>
+            </li>
+            <li>Front Left Tire:<%=!@report.front_left_tire ? 'Ok':'Issue' %>
+            </li>
+            <li>Exhaust:<%=!@report.exhaust ? 'Ok':'Issue' %>
+            </li>
+            <li>Left Side:<%=!@report.left_side ? 'Ok':'Issue' %>
+            </li>
+            <li>Left Rear Tire:<%=!@report.left_rear_tire ? 'Ok':'Issue' %>
+            </li>
+            <li>Rear:<%=!@report.rear ? 'Ok':'Issue' %>
+            </li>
+            <li>Tailpipe:<%=!@report.tail_pipe ? 'Ok':'Issue' %>
+            </li>
+            <li>Right Rear Tire:<%=!@report.right_rear_tire ? 'Ok':'Issue' %>
+            </li>
+            <li>Right Side:<%=!@report.right_side ? 'Ok':'Issue' %>
+            </li>
+            <li>Directionals:<%=!@report.directionals ? 'Ok':'Issue' %>
+            </li>
+            <li>Parking Brake:<%=!@report.parking_brake ? 'Ok':'Issue' %>
+            </li>
+            <li>Clutch:<%=!@report.clutch ? 'Ok':'Issue' %>
+            </li>
+            <li>Steering:<%=!@report.steering ? 'Ok':'Issue' %>
+            </li>
+            <li>Wheelchair Lift:<%=!@report.wheelchair_lift ? 'Ok':'Issue' %>
+            </li>
+            <li>Condition:<%=!@report.condition ? 'Ok':'Issue' %>
+            </li>
+
+            
           </ul>
         </dd>
       </div>

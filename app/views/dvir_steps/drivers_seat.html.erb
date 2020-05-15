@@ -19,6 +19,8 @@
           <div id="capture" class="hidden">
             <%= f.label :images %>
             <%= f.file_field :images %>
+            <%= f.label 'Notes' %>
+            <%= f.text_field :drivers_seat_notes %>
           </div>
           <div><%=f.submit 'Next', :class => 'p-4 rounded bg-green-500 text-white' %>
           <%= link_to 'N/A', next_wizard_path, :class => 'p-6 rounded bg-orange-500 text-white' %></div>

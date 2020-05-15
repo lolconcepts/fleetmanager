@@ -5,6 +5,6 @@
 
 <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
   <%=f.label 'Overall Safety OK' %>
-  <%=f.check_box :condition %>
+  <%=f.check_box :satisfactory %>
   <%=f.submit 'Complete Report' %>
 <% end %>

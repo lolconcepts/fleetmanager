@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_185410) do
+ActiveRecord::Schema.define(version: 2020_05_08_120924) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -209,6 +209,48 @@ ActiveRecord::Schema.define(version: 2020_05_04_185410) do
     t.boolean "condition", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "leaks_notes"
+    t.string "wires_notes"
+    t.string "belts_notes"
+    t.string "oil_notes"
+    t.string "coolant_notes"
+    t.string "battery_notes"
+    t.string "transmission_notes"
+    t.string "noise_notes"
+    t.string "guages_notes"
+    t.string "switches_notes"
+    t.string "horn_notes"
+    t.string "defrosters_notes"
+    t.string "wipers_notes"
+    t.string "stop_arm_notes"
+    t.string "mirrors_notes"
+    t.string "brakes_notes"
+    t.string "service_door_notes"
+    t.string "emergency_equipment_notes"
+    t.string "first_aid_notes"
+    t.string "stairs_notes"
+    t.string "interior_notes"
+    t.string "floor_notes"
+    t.string "emergency_notes"
+    t.string "lights_notes"
+    t.string "front_right_wheel_notes"
+    t.string "windshield_notes"
+    t.string "front_left_tire_notes"
+    t.string "exhaust_notes"
+    t.string "left_side_notes"
+    t.string "left_rear_tire_notes"
+    t.string "rear_notes"
+    t.string "tail_pipe_notes"
+    t.string "right_rear_tire_notes"
+    t.string "right_side_notes"
+    t.string "drivers_seat_notes"
+    t.string "directionals_notes"
+    t.string "clutch_notes"
+    t.string "steering_notes"
+    t.string "wheelchair_lift_notes"
+    t.string "mechanic_notes"
+    t.string "parking_brakes_notes"
+    t.string "condition_notes"
   end
 
   create_table "statuses", force: :cascade do |t|

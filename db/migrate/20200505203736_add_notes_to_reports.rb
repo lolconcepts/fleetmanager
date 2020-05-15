@@ -1,0 +1,44 @@
+class AddNotesToReports < ActiveRecord::Migration[5.2]
+  def change
+    add_column :reports, :leaks_notes, :string
+    add_column :reports, :wires_notes, :string
+    add_column :reports, :belts_notes, :string
+    add_column :reports, :oil_notes, :string
+    add_column :reports, :coolant_notes, :string
+    add_column :reports, :battery_notes, :string
+    add_column :reports, :transmission_notes, :string
+    add_column :reports, :noise_notes, :string
+    add_column :reports, :guages_notes, :string
+    add_column :reports, :switches_notes, :string
+    add_column :reports, :horn_notes, :string
+    add_column :reports, :defrosters_notes, :string
+    add_column :reports, :wipers_notes, :string
+    add_column :reports, :stop_arm_notes, :string
+    add_column :reports, :mirrors_notes, :string
+    add_column :reports, :brakes_notes, :string
+    add_column :reports, :service_door_notes, :string
+    add_column :reports, :emergency_equipment_notes, :string
+    add_column :reports, :first_aid_notes, :string
+    add_column :reports, :stairs_notes, :string
+    add_column :reports, :interior_notes, :string
+    add_column :reports, :floor_notes, :string
+    add_column :reports, :emergency_notes, :string
+    add_column :reports, :lights_notes, :string
+    add_column :reports, :front_right_wheel_notes, :string
+    add_column :reports, :windshield_notes, :string
+    add_column :reports, :front_left_tire_notes, :string
+    add_column :reports, :exhaust_notes, :string
+    add_column :reports, :left_side_notes, :string
+    add_column :reports, :left_rear_tire_notes, :string
+    add_column :reports, :rear_notes, :string
+    add_column :reports, :tail_pipe_notes, :string
+    add_column :reports, :right_rear_tire_notes, :string
+    add_column :reports, :right_side_notes, :string
+    add_column :reports, :drivers_seat_notes, :string
+    add_column :reports, :directionals_notes, :string
+    add_column :reports, :clutch_notes, :string
+    add_column :reports, :steering_notes, :string
+    add_column :reports, :wheelchair_lift_notes, :string
+    add_column :reports, :mechanic_notes, :string
+  end
+end
