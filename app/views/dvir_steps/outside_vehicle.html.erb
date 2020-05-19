@@ -1,0 +1,217 @@
+<div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+  <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
+    <div class="ml-4 mt-4">
+      <h1 class="text-lg text-gray-500">Metro West Regional Transportation Authority</h1>
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Outside Vehicle Checks
+      </h3>
+        <div class="text-left text-xs text-red-400">
+          Report ID: <%= session[:report] %>
+          Driver ID: <%= @report.driver %>
+          Vehicle ID: <%= @report.vehicle %>
+        </div><!-- DEBUG -->
+      <p class="mt-1 text-sm leading-5 text-gray-500">
+        Select any item, which is deemed to be deficient. You will be able to make notes at the end of the report for any item, which you marked as deficient.
+      </p>
+    </div>
+    <div class="ml-4 mt-4 flex-shrink-0">
+      <span class="inline-flex rounded-md shadow-sm">
+        <%= link_to ' <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700">
+                 No Issues
+               </button>'.html_safe, next_wizard_path %>
+      </span>
+    </div>
+  </div>
+  
+  <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Inspection Items</h3>
+      <p class="mt-1 text-sm leading-5 text-gray-500">
+         Select any item, which is deemed to be deficient. You will be able to make notes at the end of the report for any item, which you marked as deficient.
+      </p>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
+
+        <fieldset>
+          <legend class="text-base leading-6 font-medium text-gray-900">By Item</legend>
+
+          <div class="mt-4">
+            <div class="flex items-start">
+              <div class="absolute flex items-center h-5">
+                <%=f.check_box :exhaust, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+              </div>
+              <div class="pl-7 text-sm leading-5">
+                <label for="comments" class="font-medium text-gray-700">Exhaust</label>
+                <p class="text-gray-500">Some info about the check</p>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :front_left_tire, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Front Left Tire</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :right_rear_tire, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="offers" class="font-medium text-gray-700">Right Rear Tire</label>
+                  <p class="text-gray-500">Information about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :left_rear_tire, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Left Rear Tire</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :left_side, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Left Side of Vehicle</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :lights, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Lights</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :mirrors, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Mirrors</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :rear, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Rear of Vehicle</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :right_side, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Right Side of Vehicle</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :stop_arm, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Stop Arm</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :tail_pipe, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Tailpipe</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :wipers, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Wipers</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+              <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                  <%=f.check_box :front_right_wheel, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label for="candidates" class="font-medium text-gray-700">Front Right Tire</label>
+                  <p class="text-gray-500">Info about the check</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-start">
+                <div class="absolute flex items-center h-5">
+                 
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <%=f.submit 'Next', :class => 'p-4 rounded bg-green-500 text-white' %>
+                </div>
+              </div>
+            </div>
+         
+
+          </div>
+        </fieldset>
+        
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>

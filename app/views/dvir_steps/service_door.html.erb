@@ -17,8 +17,10 @@
         <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
           <div>Issue: <%=f.check_box :service_door %></div>
           <div id="capture" class="hidden">
-            <%= f.label :images %>
-            <%= f.file_field :images %>
+             <% if @company.capture_images %>
+              <%= f.label :images %>
+              <%= f.file_field :images %>
+            <% end %>
             <%= f.label 'Notes' %>
             <%= f.text_field :service_door_notes %>
           </div>

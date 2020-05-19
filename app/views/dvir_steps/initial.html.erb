@@ -20,8 +20,10 @@
         <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
           <div>Issue: <%=f.check_box :wires, class: "text-lg" %></div>
           <div id="capture" class="hidden">
-            <%= f.label :images %>
-            <%= f.file_field :images %>
+             <% if @company.capture_images %>
+              <%= f.label :images %>
+              <%= f.file_field :images %>
+            <% end %>
           </div>
           <div><%=f.submit 'Next', :class => 'p-4 rounded bg-green-500 text-white' %>
           <%= link_to 'N/A', next_wizard_path, :class => 'p-6 rounded bg-orange-500 text-white' %></div>

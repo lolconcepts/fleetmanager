@@ -16,6 +16,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     zip: Field::String,
     telephone: Field::String,
     website: Field::String,
+    capture_images: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -43,6 +44,7 @@ class CompanyDashboard < Administrate::BaseDashboard
   zip
   telephone
   website
+  capture_images
   created_at
   updated_at
   ].freeze
@@ -58,6 +60,7 @@ class CompanyDashboard < Administrate::BaseDashboard
   zip
   telephone
   website
+  capture_images
   ].freeze
 
   # COLLECTION_FILTERS

@@ -40,32 +40,24 @@
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <%= @report.num_issues('num') %>
         </dd>
+        <% if @report.notes %>
+        <dt class="mt-4 text-sm leading-5 font-medium text-gray-500">
+          Driver Notes
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <%= @report.notes %>
+        </dd>
+        <% end %>
       </div>
       <div class="sm:col-span-2">
         <dt class="text-sm leading-5 font-medium text-gray-500">
-          Vehicle Checks
+          Inside Vehicle Checks - <%= inside_checks.html_safe %>
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <ul>
-            <li>Driver's Seat:<%=!@report.drivers_seat ? 'Ok':'Issue' %>
+             <li>Driver's Seat:<%=!@report.drivers_seat ? 'Ok':'Issue' %>
             </li>
-            <li>Leaks:<%=!@report.leaks ? 'Ok':'Issue' %>
-            </li>
-            <li>Wires:<%=!@report.wires ? 'Ok':'Issue' %>
-            </li>
-            <li>Belts:<%=!@report.belts ? 'Ok':'Issue' %>
-            </li>
-            <li>Oil:<%=!@report.oil ? 'Ok':'Issue' %>
-            </li>
-             <li>Coolant:<%=!@report.coolant ? 'Ok':'Issue' %>
-            </li>
-
-            <li>Battery:<%=!@report.battery ? 'Ok':'Issue' %>
-            </li>
-            <li>Transmission:<%=!@report.transmission ? 'Ok':'Issue' %>
-            </li>
-            <li>Noise:<%=!@report.noise ? 'Ok':'Issue' %>
-            </li>
+         
             <li>Guages:<%=!@report.guages ? 'Ok':'Issue' %>
             </li>
             <li>Switches:<%=!@report.switches ? 'Ok':'Issue' %>
@@ -73,14 +65,6 @@
             <li>Horn:<%=!@report.horn ? 'Ok':'Issue' %>
             </li>
             <li>Defrosters:<%=!@report.defrosters ? 'Ok':'Issue' %>
-            </li>
-            <li>Wipers:<%=!@report.wipers ? 'Ok':'Issue' %>
-            </li>
-            <li>Stop Arm:<%=!@report.stop_arm ? 'Ok':'Issue' %>
-            </li>
-            <li>Mirrors:<%=!@report.mirrors ? 'Ok':'Issue' %>
-            </li>
-            <li>Brakes:<%=!@report.brakes ? 'Ok':'Issue' %>
             </li>
             <li>Service Door:<%=!@report.service_door ? 'Ok':'Issue' %>
             </li>
@@ -98,11 +82,21 @@
             </li>
             <li>Lights:<%=!@report.lights ? 'Ok':'Issue' %>
             </li>
-            <li>Front Right Wheel:<%=!@report.front_right_wheel ? 'Ok':'Issue' %>
+             <li>Steering:<%=!@report.steering ? 'Ok':'Issue' %>
             </li>
-            <li>Windshield:<%=!@report.windshield ? 'Ok':'Issue' %>
+            <li>Wheelchair Lift:<%=!@report.wheelchair_lift ? 'Ok':'Issue' %>
             </li>
-            <li>Front Left Tire:<%=!@report.front_left_tire ? 'Ok':'Issue' %>
+            <li>Directionals:<%=!@report.directionals ? 'Ok':'Issue' %>
+            </li>
+          </ul>
+        </dd>
+
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+          Outside Vehicle Checks - <%= outside_checks.html_safe %>
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <ul>
+           <li>Front Left Tire:<%=!@report.front_left_tire ? 'Ok':'Issue' %>
             </li>
             <li>Exhaust:<%=!@report.exhaust ? 'Ok':'Issue' %>
             </li>
@@ -118,67 +112,50 @@
             </li>
             <li>Right Side:<%=!@report.right_side ? 'Ok':'Issue' %>
             </li>
-            <li>Directionals:<%=!@report.directionals ? 'Ok':'Issue' %>
+            <li>Wipers:<%=!@report.wipers ? 'Ok':'Issue' %>
+            </li>
+            <li>Stop Arm:<%=!@report.stop_arm ? 'Ok':'Issue' %>
+            </li>
+            <li>Mirrors:<%=!@report.mirrors ? 'Ok':'Issue' %>
+            </li>
+            <li>Front Right Wheel:<%=!@report.front_right_wheel ? 'Ok':'Issue' %>
+            </li>
+          </ul>
+        </dd>
+
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+           Vehicle Safety Checks - <%= safety_checks.html_safe %>
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <ul>
+              <li>Leaks:<%=!@report.leaks ? 'Ok':'Issue' %>
+            </li>
+            <li>Wires:<%=!@report.wires ? 'Ok':'Issue' %>
+            </li>
+            <li>Belts:<%=!@report.belts ? 'Ok':'Issue' %>
+            </li>
+            <li>Oil:<%=!@report.oil ? 'Ok':'Issue' %>
+            </li>
+             <li>Coolant:<%=!@report.coolant ? 'Ok':'Issue' %>
+            </li>
+
+            <li>Battery:<%=!@report.battery ? 'Ok':'Issue' %>
+            </li>
+            <li>Transmission:<%=!@report.transmission ? 'Ok':'Issue' %>
+            </li>
+            <li>Noise:<%=!@report.noise ? 'Ok':'Issue' %>
             </li>
             <li>Parking Brake:<%=!@report.parking_brake ? 'Ok':'Issue' %>
             </li>
             <li>Clutch:<%=!@report.clutch ? 'Ok':'Issue' %>
             </li>
-            <li>Steering:<%=!@report.steering ? 'Ok':'Issue' %>
-            </li>
-            <li>Wheelchair Lift:<%=!@report.wheelchair_lift ? 'Ok':'Issue' %>
-            </li>
-            <li>Condition:<%=!@report.condition ? 'Ok':'Issue' %>
+            <li>Windshield:<%=!@report.windshield ? 'Ok':'Issue' %>
             </li>
 
-            
           </ul>
         </dd>
-      </div>
-      <div class="sm:col-span-2">
-        <dt class="text-sm leading-5 font-medium text-gray-500">
-          Attachments
-        </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
-          <ul class="border border-gray-200 rounded-md">
-            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-              <div class="w-0 flex-1 flex items-center">
-                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
-                </svg>
-                <span class="ml-2 flex-1 w-0 truncate">
-                  Oil_Change.jpg
-                </span>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                  Download
-                </a>
-              </div>
-            </li>
-            <li class="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-              <div class="w-0 flex-1 flex items-center">
-                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
-                </svg>
-                <span class="ml-2 flex-1 w-0 truncate">
-                  Drivers_Seat.jpg
-                </span>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                  Download
-                </a>
-              </div>
-            </li>
-          </ul>
-          <% if @report.images.count > 0 %>
-            <% @report.images.each do |img| %>
-              <%= image_tag url_for(img) %>
-            <% end %> 
-          <% end %>
-        </dd>
-      </div>
+      
+      
     </dl>
   </div>
 </div>

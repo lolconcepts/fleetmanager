@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_120924) do
+ActiveRecord::Schema.define(version: 2020_05_15_152740) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_120924) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "capture_images", default: true
   end
 
   create_table "conditions", force: :cascade do |t|
@@ -156,6 +157,12 @@ ActiveRecord::Schema.define(version: 2020_05_08_120924) do
     t.string "part_manufacturer_name"
     t.string "manufacturer_part_number"
     t.index ["vendor_id"], name: "index_parts_on_vendor_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.boolean "collect_images"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reports", force: :cascade do |t|
