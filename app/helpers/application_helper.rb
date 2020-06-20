@@ -11,6 +11,15 @@ module ApplicationHelper
 	def list_issues
 		@report = Report.find(session[:report])
 		@issues = []
+		if @report.monitor
+			@issues << "Passenger Monitor"
+		end
+		if @report.tablet
+			@issues << "Tablet"
+		end
+		if @report.schedule_book
+			@issues << "Schedule Book"
+		end
 		if @report.drivers_seat
 			@issues << "Driver's Seat"
 		end
@@ -125,6 +134,9 @@ module ApplicationHelper
 		if @report.windshield
 			@issues << "Windshield"
 		end
+		if @report.brakes
+			@issues << "Brakes"
+		end
 		return @issues
 
 	end
@@ -159,10 +171,24 @@ module ApplicationHelper
           </span>'
 	end
 
+	def non_affecting_checks
+		@report = Report.find(session[:report])
+		checks =[@report.schedule_book,@report.tablet,@report.monitor]
+		checks.each do |c|
+			if c
+				return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-red-100 text-red-800">
+            ISSUES
+          </span>'
+			end
+		end
+		return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-green-100 text-green-800">
+            PASS
+          </span>'
+	end
 
 	def safety_checks
 		@report = Report.find(session[:report])
-		checks =[@report.leaks,@report.wires,@report.belts,@report.oil,@report.coolant,@report.battery,@report.transmission,@report.noise,@report.parking_brake,@report.clutch,@report.windshield]
+		checks =[@report.leaks,@report.wires,@report.belts,@report.oil,@report.coolant,@report.battery,@report.transmission,@report.noise,@report.parking_brake,@report.clutch,@report.windshield,@report.brakes]
 		checks.each do |c|
 			if c
 				return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-red-100 text-red-800">
@@ -180,6 +206,18 @@ module ApplicationHelper
 		checks =[@report.drivers_seat,@report.guages,@report.switches,@report.horn,@report.defrosters,@report.service_door,@report.emergency_equipment,@report.first_aid,@report.stairs,@report.interior,@report.floor,@report.lights,@report.steering,@report.wheelchair_lift,@report.directionals,@report.front_left_tire,@report.exhaust,@report.left_side,@report.left_rear_tire,@report.rear,@report.tail_pipe,@report.right_rear_tire,@report.right_side,@report.wipers,@report.stop_arm,@report.mirrors,@report.front_right_wheel,@report.leaks,@report.wires,@report.belts,@report.oil,@report.coolant,@report.battery,@report.transmission,@report.noise,@report.parking_brake,@report.clutch,@report.windshield]
 		checks.each do |c|
 			if c
+				return true
+			end
+		end
+		return false
+	end
+
+	def critical_checks
+		@report = Report.find(session[:report])
+		# List of critical checks
+		crit_checks = [@report.brakes,@report.wires,@report.leaks,@report.emergency_equipment]
+		crit_checks.each do |cc|
+			if cc
 				return true
 			end
 		end

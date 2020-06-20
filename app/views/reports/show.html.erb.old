@@ -9,10 +9,15 @@ a{
   color: white!important;
 }
 </style>
-<div class="flex flex-col bg-yellow-300 p-4">
-  <div class="text-xl">eDVIR Report - <%=@report.updated_at.strftime("%c") %></div>
-  <div class="text-lg mt-2 text-gray-500">Metro West Regional Transportation Authority</div>
-  <span class="inline-flex rounded-md shadow-sm mt-2">
+<div class="bg-white shadow overflow-hidden  sm:rounded-lg">
+  <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      eDVIR Report - <%=@report.updated_at.strftime("%c") %>
+    </h3>
+    <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+      Metro West Regional Transportation Authority
+    </p>
+    <span class="inline-flex rounded-md shadow-sm">
   <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
   
       
@@ -23,42 +28,48 @@ a{
     <%= link_to "PRINT", '#', onclick: "printpage()" %>
   </button>
 </span>
-</div>
-  
+<% if critical_checks %>
+  <div class="container">
+    <div class="flex">
+      <div class="text-red-700 mx-auto text-2xl border bg-yellow-300">GARAGE ACTION REQUIRED</div>
+    </div>
+  </div>
+<% end %>
     
-  
-
-<div class="flex p-4 justify-around">
-  <div class="flex-1"><dt class="text-sm leading-5 font-medium text-gray-500">
+  </div>
+  <div class="px-4 py-5 sm:px-6">
+    <dl class="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
           Submitted By Driver
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <%=@report.driver %>
         </dd>
-        <br>
+      </div>
+      <div class="sm:col-span-1">
         <dt class="text-sm leading-5 font-medium text-gray-500">
           Vehicle
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           Bus #<%=@report.vehicle %>
         </dd>
-
-  </div>
-  <div class="flex-1">
-    <dt class="text-sm leading-5 font-medium text-gray-500">
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
           Vehicle Condition / Safe For Operation
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <%= dvir_status(@report.satisfactory) %>
         </dd>
-        <br>
+      </div>
+      <div class="sm:col-span-1">
         <dt class="text-sm leading-5 font-medium text-gray-500">
           Number of Issues Identified
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <%= @report.num_issues('num') %>
         </dd>
-        <br>
         <% if @report.notes %>
         <dt class="mt-4 text-sm leading-5 font-medium text-gray-500">
           Driver Notes
@@ -67,10 +78,10 @@ a{
           <%= @report.notes %>
         </dd>
         <% end %>
-    </div>
-</div>
-<div class="flex p-4 border">
-  <div class="flex-1 border-gray-200"><dt class="text-sm leading-5 font-medium text-gray-500">
+      </div>
+      <div class="container flex">
+      <div class="sm:col-span-2">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
           Inside Vehicle Checks - <%= inside_checks.html_safe %>
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
@@ -111,8 +122,9 @@ a{
             <li>Directionals:<%=!@report.directionals ? 'Ok':'<span class= "text-red-700">Issue</span>'.html_safe %>
             </li>
           </ul>
-        </dd></div>
-  <div class="flex-1 border-gray-200"><dt class="text-sm leading-5 font-medium text-gray-500">
+        </dd>
+
+          <dt class="text-sm leading-5 font-medium text-gray-500">
           Outside Vehicle Checks - <%= outside_checks.html_safe %>
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
@@ -140,8 +152,9 @@ a{
             <li>Front Right Wheel:<%=!@report.front_right_wheel ? 'Ok':'<span class= "text-red-700">Issue</span>'.html_safe %>
             </li>
           </ul>
-        </dd></div>
-  <div class="flex-1 border-gray-200"><dt class="text-sm leading-5 font-medium text-gray-500">
+        </dd>
+
+          <dt class="text-sm leading-5 font-medium text-gray-500">
            Vehicle Safety Checks - <%= safety_checks.html_safe %>
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
@@ -151,8 +164,6 @@ a{
             <li>Wires:<%=!@report.wires ? 'Ok':'<span class= "text-red-700">Issue</span>'.html_safe %>
             </li>
             <li>Belts:<%=!@report.belts ? 'Ok':'<span class= "text-red-700">Issue</span>'.html_safe %>
-            </li>
-            <li>Brakes:<%=!@report.brakes ? 'Ok':'<span class= "text-red-700">Issue</span>'.html_safe %>
             </li>
             <li>Oil:<%=!@report.oil ? 'Ok':'<span class= "text-red-700">Issue</span>'.html_safe %>
             </li>
@@ -171,8 +182,9 @@ a{
             </li>
 
           </ul>
-        </dd></div>
-  <div class="flex-1 border-gray-200"><dt class="text-sm leading-5 font-medium text-gray-500">
+        </dd>
+      <div class="flex-1">
+       <dt class="text-sm leading-5 font-medium text-gray-500">
            Non-Service Affecting Checks - <%= non_affecting_checks.html_safe %>
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
@@ -185,19 +197,8 @@ a{
             </li>
             
           </ul>
-        </dd></div>
-</div>
-<% if critical_checks %>
-<div class="flex mx-auto mt-4">
-<div role="alert">
-    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-      GARAGE ACTION REQUIRED
-    </div>
-      <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-        <p>Critical Checks Have Been Marked As Failed By Driver.</p>
+        </dd>
       </div>
-    </div>
+    </dl>
   </div>
-  <% end %>
-
-
+</div>

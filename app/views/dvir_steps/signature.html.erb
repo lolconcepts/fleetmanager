@@ -9,14 +9,8 @@
           Report ID: <%= session[:report] %>
           Driver ID: <%= @report.driver %>
           Vehicle ID: <%= @report.vehicle %>
-        </div><!-- DEBUG -->
-      <p class="mt-1 text-sm leading-5 text-gray-500">
-        Finalizing the eDVIR report. Identify Vehicle overall safety and add notes, if any items have been identified as deficient.
-      </p>
-    </div>
-    <div class="ml-4 mt-4 flex-shrink-0">
-      
-    </div>
+        </div><!-- DEBUG -->   
+    </div> 
   </div>
   
   <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
@@ -24,12 +18,29 @@
     <div class="md:col-span-1">
       <h3 class="text-lg font-medium leading-6 text-gray-900">Inspection Signoff</h3>
       <p class="mt-1 text-sm leading-5 text-gray-500">
-         Finalizing the eDVIR report. Identify Vehicle overall safety and add notes, if any items have been identified as deficient.
+         Finalizing the eDVIR report. Identify Vehicle overall safety and add notes, if any items have been identified as deficient. By clicking the COMPLETE REPORT button, you are certifying that this report is accurate to the best of your knowledge.
       </p>
     </div>
     <div class="mt-5 md:mt-0 md:col-span-2">
       <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
-
+        <div class="flex items-start">
+                  <div class="absolute flex items-center h-14">
+                    <%=f.text_area :notes, class: 'form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-14' %>
+                  </div>
+                  <div class="pl-60 text-sm leading-5">
+                    <label for="candidates" class="font-medium text-gray-700">Notes</label>
+                    <p class="text-gray-500">You have listed items as failing inspection. Please note reasons before submitting.
+                      <% if !list_issues.empty? %>
+                        <ul>
+                          <% list_issues.each do |i| %>
+                          <li><%= i %></li>
+                          <% end %>
+                        </ul>
+                      <% end %>
+                    </p>
+                  </div>
+                </div>
+              </div>
         <fieldset>
           <legend class="text-base leading-6 font-medium text-gray-900">By Item</legend>
 
@@ -43,27 +54,8 @@
                 <p class="text-gray-500">If vehicle overall safety is acceptable, please check the box.</p>
               </div>
             </div>
-            <% if issues_reported %>
-	            <div class="mt-4">
-	              <div class="flex items-start">
-	                <div class="absolute flex items-center h-14">
-	                  <%=f.text_area :notes, class: 'form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-14' %>
-	                </div>
-	                <div class="pl-60 text-sm leading-5">
-	                  <label for="candidates" class="font-medium text-gray-700">Notes</label>
-	                  <p class="text-gray-500">You have listed items as failing inspection. Please note reasons before submitting.
-                      <% if !list_issues.empty? %>
-                        <ul>
-                          <% list_issues.each do |i| %>
-                          <li><%= i %></li>
-                          <% end %>
-                        </ul>
-                      <% end %>
-                    </p>
-	                </div>
-	              </div>
-	            </div>
-            <% end %>
+        
+	            
 
             
 
@@ -73,7 +65,20 @@
                  
                 </div>
                 <div class="pl-7 text-sm leading-5">
-                  <%=f.submit 'Complete Report', :class => 'p-4 rounded bg-green-500 text-white' %>
+                  <span class="inline-flex rounded-md shadow-sm mt-4">
+                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-500 hover:bg-green-500 focus:outline-none focus:border-greeb-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
+
+                  <svg viewBox="0 0 20 20" class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor">
+  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+</svg>
+  <%=f.submit "Complete Report", class: "bg-green-500"%>
+
+</button>
+</span>
+
+
+
+                  
                 </div>
               </div>
             </div>

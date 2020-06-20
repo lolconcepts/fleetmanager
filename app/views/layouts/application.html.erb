@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS Files -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" media="all" rel="stylesheet" >
+    <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css">
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style type="text/css">
@@ -26,10 +26,9 @@
    
   </body>
   <script type="text/javascript">
-    $(function(){
-      $('input[type="checkbox"]').click(function(event){
-        $('div#capture').toggle();
-      });
-    });
+    function printpage()
+      {
+        window.print()
+      }
   </script>
 </html>

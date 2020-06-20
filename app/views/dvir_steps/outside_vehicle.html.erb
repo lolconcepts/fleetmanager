@@ -33,7 +33,17 @@
     </div>
     <div class="mt-5 md:mt-0 md:col-span-2">
       <%= form_for(@report, :url => wizard_path, :method => :put) do |f| %>
-
+      <div class="flex items-start">
+                  <div class="absolute flex items-center h-14">
+                    <%=f.text_area :notes, class: 'form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-14' %>
+                  </div>
+                  <div class="pl-60 text-sm leading-5">
+                    <label for="candidates" class="font-medium text-gray-700">Notes</label>
+                    <p class="text-gray-500">Use this area to make notes for the report.
+                    </p>
+                  </div>
+                </div>
+              </div>
         <fieldset>
           <legend class="text-base leading-6 font-medium text-gray-900">By Item</legend>
 
@@ -145,17 +155,6 @@
               </div>
             </div>
 
-            <div class="mt-4">
-              <div class="flex items-start">
-                <div class="absolute flex items-center h-5">
-                  <%=f.check_box :stop_arm, class: 'form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out' %>
-                </div>
-                <div class="pl-7 text-sm leading-5">
-                  <label for="candidates" class="font-medium text-gray-700">Stop Arm</label>
-                  <p class="text-gray-500">Vehicle stop are is operational</p>
-                </div>
-              </div>
-            </div>
 
             <div class="mt-4">
               <div class="flex items-start">
