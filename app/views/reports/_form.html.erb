@@ -11,10 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field mb-4">
-    <%= form.label :driver %>
-    <%= form.text_field :driver %>
-  </div>
+  <% if @driver %>
+    <%=form.hidden_field :driver, value: @driver %>
+    <% else %>
+      <div class="field mb-4">
+        <%= form.label :driver %>
+        <%= form.text_field :driver %>
+      </div>
+  <% end %>
+
   <% if @vehicle %>
     <%=form.hidden_field :vehicle, value: @vehicle.number %>
   <% end %>

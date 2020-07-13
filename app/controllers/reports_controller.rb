@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
     @vehicle = Vehicle.where(:number => params[:vid])[0]
+    @driver = params[:driver]
   end
 
   # GET /reports/1/edit
