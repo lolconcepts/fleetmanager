@@ -22,6 +22,11 @@
 
   <% if @vehicle %>
     <%=form.hidden_field :vehicle, value: @vehicle.number %>
+    <% else %>
+      <div class="field mb-4">
+        <%= form.label :vehicle %>
+        <%= form.text_field :vehicle %>
+      </div>
   <% end %>
   <div class="actions mb-4">
     <%= form.submit %>

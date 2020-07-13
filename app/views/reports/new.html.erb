@@ -1,10 +1,14 @@
 <div class="container mx-auto bg-gray-500 p-8 rounded shadow-lg">
 <% if @vehicle %>
 DVIR for VEHICLE: <%= @vehicle.number %>
+<br>
 <% end %>
-<h1 class="mb-4">New Report</h1>
+<% if @driver %>
+DRIVER: <%= @driver %>
+<% end %>
+<h1 class="mb-4 text-xl">New Report Creation</h1>
 
 <%= render 'form', report: @report %>
 
-<%= link_to 'Back', reports_path %>
+
 </div>
